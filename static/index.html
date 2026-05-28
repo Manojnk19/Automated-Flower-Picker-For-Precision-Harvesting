@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Rose Harvester — FPV Controller</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <div id="app">
+    <header class="topbar">
+      <h1>Rose Harvester — FPV</h1>
+      <div class="mode-switch" id="modeSwitch">
+        <button data-mode="auto">Automatic</button>
+        <button data-mode="manual" class="active">Manual</button>
+      </div>
+    </header>
+
+    <main class="fpv-area">
+      <div class="video-frame" id="videoFrame">
+        <img id="fpvVideo" src="/video_feed" width="100%" height="100%">
+        <button id="maximizeBtn" class="overlay-btn maximize-btn">⛶</button>
+        <div class="overlay bottom-center">
+          <button id="gripper" class="overlay-btn toggle">Open</button>
+        </div>
+        <div class="overlay bottom-left joystick" id="wheelJoystick">
+          <button class="joy-btn up" data-action="wheels_forward">▲</button>
+          <button class="joy-btn down" data-action="wheels_backward">▼</button>
+          <button class="joy-btn left" data-action="wheels_left">◀</button>
+          <button class="joy-btn right" data-action="wheels_right">▶</button>
+        </div>
+        <div class="overlay bottom-right joystick-container">
+          <div class="shoulder-controls">
+            <button id="shoulderLeft" class="overlay-btn">◀</button>
+            <button id="shoulderRight" class="overlay-btn">▶</button>
+          </div>
+          <div class="joystick" id="armJoystick">
+            <button class="joy-btn up" data-action="arm_up">▲</button>
+            <button class="joy-btn down" data-action="arm_down">▼</button>
+            <button class="joy-btn left" data-action="arm_base_left">◀</button>
+            <button class="joy-btn right" data-action="arm_base_right">▶</button>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer class="statusbar">
+      <div id="lastSent">Last: —</div>
+      <div id="connection">Backend: <span id="backendStatus">unknown</span></div>
+    </footer>
+  </div>
+  <script src="/static/script.js"></script>
+</body>
+</html>
